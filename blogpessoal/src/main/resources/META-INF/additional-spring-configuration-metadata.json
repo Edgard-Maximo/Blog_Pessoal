@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "Configurao",
+    "type": "java.lang.String",
+    "description": "A description for 'Configurao'"
+  },
+  {
+    "name": "Configuro",
+    "type": "java.lang.String",
+    "description": "A description for 'Configuro'"
+  }
+]}
