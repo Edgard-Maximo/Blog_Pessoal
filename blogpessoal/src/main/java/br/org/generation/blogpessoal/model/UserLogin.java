@@ -4,6 +4,8 @@ import lombok.Data;
 
 @Data
 public class UserLogin {
+	
+	private long id;
 
 	private String nome;
 
@@ -12,6 +14,12 @@ public class UserLogin {
 	private String senha;
 
 	private String token;
+	
+	private String foto;
+	
+	private String tipo;
+
+	
 
 
 }

@@ -69,23 +69,27 @@ public class UsuarioService {
 
 	}
 
-	public Optional<UserLogin> Logar(Optional<UserLogin> userLogin) {
+	public Optional<UserLogin> Logar(Optional<UserLogin> user) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		Optional<Usuario> usuario = repository.findByUsuario(userLogin.get().getUsuario());
+		Optional<Usuario> usuario = repository.findByUsuario(user.get().getUsuario());
 
 		if (usuario.isPresent()) {
 
-			if (encoder.matches(userLogin.get().getSenha(), usuario.get().getSenha())) {
+			if (encoder.matches(user.get().getSenha(), usuario.get().getSenha())) {
 
-				String auth = userLogin.get().getUsuario() + ":" + userLogin.get().getSenha();
+				String auth = user.get().getUsuario() + ":" + user.get().getSenha();
 				byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
 				String authHeader = "Basic " + new String(encodedAuth);
 
-				userLogin.get().setToken(authHeader);
-				userLogin.get().setNome(usuario.get().getNome());
-				userLogin.get().setSenha(usuario.get().getSenha());
+				user.get().setToken(authHeader);
+				user.get().setId(usuario.get().getId());
+				user.get().setNome(usuario.get().getNome());
+				user.get().setSenha(usuario.get().getSenha());
+				user.get().setFoto(usuario.get().getFoto());
+				user.get().setTipo(usuario.get().getTipo());
+				
 
-				return userLogin;
+				return user;
 
 			}
 

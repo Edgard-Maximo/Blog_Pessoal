@@ -56,6 +56,12 @@ public class Usuario {
 	@Column(name = "dt_nascimento")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dataNascimento; // Atributo adicional
+	
+	
+	private String foto;
+	
+	private String tipo;
+	
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
