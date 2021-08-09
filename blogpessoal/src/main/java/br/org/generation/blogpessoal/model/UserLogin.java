@@ -5,19 +5,19 @@ import lombok.Data;
 @Data
 public class UserLogin {
 	
-	private long id;
+	private long id; // id
 
-	private String nome;
+	private String nome; // ok
 
 	private String usuario;
 
-	private String senha;
+	private String senha; // ok
 
-	private String token;
+	private String token; //ok
 	
-	private String foto;
+	private String foto; //ok
 	
-	private String tipo;
+	private String tipo; // ok
 
 	
 
